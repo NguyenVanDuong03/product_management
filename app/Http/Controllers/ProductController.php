@@ -39,6 +39,13 @@ class ProductController extends Controller
             'description' => 'required|string',
             'supplier_email' => 'required|email',
             'stock' => 'required|numeric',
+        ],
+        [
+            'name.required' => 'The name field is required.',
+            'price.required' => 'The price field is required.',
+            'description.required' => 'The description field is required.',
+            'supplier_email.required' => 'The supplier email field is required.',
+            'stock.required' => 'The stock field is required.',
         ]);
 
         if($validator->fails()) {
@@ -59,7 +66,12 @@ class ProductController extends Controller
 
         $product->save();
 
-        return redirect()->route('dashboard');
+        $notification = [
+            'message' => 'Successfully Done',
+            'alert-type' => 'success'
+        ];
+
+        return redirect()->route('dashboard')->with($notification);
     }
 
     /**

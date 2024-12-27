@@ -47,7 +47,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
                             <x-input-label for="image" :value="__('Image')" />
-                            <x-text-input id="image" name="image" type="file" class="mt-1 block w-full" required/>
+                            <x-text-input id="image" name="image" type="file" class="mt-1 block w-full" />
                             <x-input-error :messages="$errors->get('image')" class="mt-2" />
                         </div>
 
