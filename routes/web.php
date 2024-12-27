@@ -8,9 +8,9 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -19,7 +19,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::prefix('product')->middleware('auth')->group(function () {
-    Route::get('/', [ProductController::class, 'index'])->name('product.index');
+    Route::get('/', [ProductController::class, 'index'])->name('dashboard');
     Route::get('/create', [ProductController::class, 'create'])->name('product.create');
     Route::post('/store', [ProductController::class, 'store'])->name('product.store');
     Route::get('/{product}/edit', [ProductController::class, 'edit'])->name('product.edit');
