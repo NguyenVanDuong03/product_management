@@ -39,6 +39,11 @@
         </main>
     </div>
 
+    <script src="{{ asset('assets/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ asset('assets/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    @stack('scripts')
+
     <script>
         @if (Session::has('message'))
             var type = "{{ Session::get('alert-type', 'info') }}"
@@ -77,11 +82,6 @@
             }
         @endif
     </script>
-
-    <script src="{{ asset('assets/jquery-3.7.1.min.js') }}"></script>
-    <script src="{{ asset('assets/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    @stack('scripts')
 </body>
 
 </html>

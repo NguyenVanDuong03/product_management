@@ -67,7 +67,7 @@ class ProductController extends Controller
         $product->save();
 
         $notification = [
-            'message' => 'Successfully Done',
+            'message' => 'Create successfully Done',
             'alert-type' => 'success'
         ];
 
@@ -121,7 +121,12 @@ class ProductController extends Controller
 
         $product->update();
 
-        return redirect()->route('dashboard');
+        $notification = [
+            'message' => 'Edit successfully Done',
+            'alert-type' => 'success'
+        ];
+
+        return redirect()->route('dashboard')->with($notification);
     }
 
     /**
@@ -131,6 +136,11 @@ class ProductController extends Controller
     {
         $product->delete();
 
-        return redirect()->route('dashboard');
+        $notification = [
+            'message' => 'Delete successfully Done',
+            'alert-type' => 'success'
+        ];
+
+        return redirect()->route('dashboard')->with($notification);
     }
 }
